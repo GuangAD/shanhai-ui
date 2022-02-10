@@ -16,22 +16,21 @@
   </transition>
 </template>
 <script lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { defineComponent, defineProps, inject } from 'vue'
+import { defineComponent, inject } from 'vue'
 export default defineComponent({
   name: 'CarItem',
-})
-</script>
-<script setup lang="ts">
-defineProps({
-  index: {
-    type: Number,
-    required: true,
+  props: {
+    index: {
+      type: Number,
+      required: true,
+    },
+  },
+  setup() {
+    const currentIndex = inject('currentIndex')
+    const dir = inject('dir')
+    return { currentIndex, dir }
   },
 })
-const currentIndex = inject('currentIndex')
-const dir = inject('dir')
 </script>
 
 <style module lang="pcss">

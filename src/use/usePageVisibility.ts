@@ -5,12 +5,11 @@ type voidFunction = () => void
 export default function usePageVisibility(
   visible: voidFunction,
   hidden: voidFunction
-) {
+): void {
   function visibilityChange() {
     if (document.visibilityState === 'visible') {
       visible()
     } else if (document.visibilityState === 'hidden') {
-      console.log('hidden')
       hidden()
     }
   }

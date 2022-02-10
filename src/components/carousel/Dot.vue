@@ -14,32 +14,33 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineComponent, defineProps, defineEmits } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'CarDot',
+  props: {
+    itemLen: {
+      type: Number,
+      required: true,
+    },
+    currentIndex: {
+      type: Number,
+      required: true,
+    },
+    activeDotColor: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ['dotClick'],
+  setup(props, { emit }) {
+    function click(index: number) {
+      emit('dotClick', index)
+    }
+    return {
+      click,
+    }
+  },
 })
-</script>
-<script setup lang="ts">
-defineProps({
-  itemLen: {
-    type: Number,
-    required: true,
-  },
-  currentIndex: {
-    type: Number,
-    required: true,
-  },
-  activeDotColor: {
-    type: String,
-    required: true,
-  },
-})
-const emit = defineEmits(['dotClick'])
-
-function click(index: number) {
-  emit('dotClick', index)
-}
 </script>
 
 <style module lang="pcss">

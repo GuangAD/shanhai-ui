@@ -10,25 +10,23 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, defineProps, defineEmits } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'CarDir',
-})
-</script>
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-defineProps({
-  dir: {
-    type: String,
-    required: true,
+  props: {
+    dir: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ['dirClick'],
+  setup(props, { emit }) {
+    function dirClick(dir: string) {
+      emit('dirClick', dir)
+    }
+    return { dirClick }
   },
 })
-const emit = defineEmits(['dirClick'])
-
-function dirClick(dir: string) {
-  emit('dirClick', dir)
-}
 </script>
 <style module lang="pcss">
 .director {

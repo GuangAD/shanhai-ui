@@ -33,6 +33,7 @@ import CarDot from './Dot.vue'
 import CarDir from './director.vue'
 import { usePageVisibility } from '../../use/index'
 export default defineComponent({
+  name: 'Carousel',
   props: {
     autoplay: {
       type: Boolean,
@@ -59,7 +60,6 @@ export default defineComponent({
       default: '#ff5000',
     },
   },
-  name: 'Carousel',
   components: {
     CarDot,
     CarDir,
@@ -84,8 +84,6 @@ export default defineComponent({
     }
     const len = ref(0)
     function move(dir: string) {
-      console.log('move is running')
-
       switch (dir) {
         case 'next':
           dirR.value = 'next'
@@ -102,12 +100,10 @@ export default defineComponent({
       }
     }
     function stopPaly() {
-      console.log('stopPaly', timer)
       if (timer) clearInterval(timer)
       timer = null
     }
     onMounted(() => {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       len.value = useSlots().default!()[0].children!.length as number
       autoPaly()
     })

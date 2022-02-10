@@ -6,4 +6,5 @@ const ShaiHaiUI = {
   },
 }
 export { Carousel }
+export * from './use/index'
 export default ShaiHaiUI

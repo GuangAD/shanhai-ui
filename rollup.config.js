@@ -1,8 +1,7 @@
-import esbuild from 'rollup-plugin-esbuild'
 import vue from 'rollup-plugin-vue'
 import postcss from 'rollup-plugin-postcss'
 import dts from 'rollup-plugin-dts'
-
+import esbuild from 'rollup-plugin-esbuild'
 /**
  * @type {import('rollup').RollupOptions}
  */

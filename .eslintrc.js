@@ -28,5 +28,6 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': ['error', require('./.prettierrc.js')],
+    'no-console': 1,
   },
 }
