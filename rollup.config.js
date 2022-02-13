@@ -22,7 +22,9 @@ const config = {
       preprocessStyles: true,
       css: false,
     }),
-    postcss(),
+    postcss({
+      extract: 'index.css'
+    }),
     esbuild(),
   ],
 }
